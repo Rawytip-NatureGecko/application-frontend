@@ -1,0 +1,28 @@
+.authen-main-header {
+    @apply text-xl text-stellar-blue font-bold font-poppins text-center bg-black bg-opacity-10 py-3 duration-300 border-stellar-blue border-b-4 border-opacity-0;
+}
+.authen-main-header:hover {
+    @apply bg-opacity-20 border-opacity-100
+}
+.authen-main-block{
+    @apply border-yellow-600 border-4 rounded-b-3xl bg-white bg-opacity-25 
+}
+.authen-form-block{
+    @apply p-3
+}
+.authen-tipbox {
+    @apply text-yellow-950 text-left;
+}
+.authen-label {
+    min-width: 120px;
+    @apply text-stellar-blue font-semibold text-right px-5 my-auto;
+}
+.authen-input {
+    @apply bg-black bg-opacity-10 w-full text-stellar-blue p-2 rounded-lg  duration-150
+}
+.authen-input::placeholder  {
+    @apply text-stellar-blue opacity-80
+}
+.authen-input:hover {
+    @apply bg-opacity-20 bg-cyan-900
+}

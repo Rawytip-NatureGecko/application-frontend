@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import { createI18n } from 'vue-i18n'
 
+
 import '@/styles/index.css'
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 

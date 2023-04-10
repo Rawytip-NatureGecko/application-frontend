@@ -41,7 +41,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "src/socket.js", "src/socket.js"  ],
   "exclude": [
     "node_modules",
     "dist",

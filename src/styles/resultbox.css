@@ -1,0 +1,19 @@
+.result-box {
+    @apply font-poppins bg-opacity-5 p-2 border-2 rounded-md my-1 hover:bg-opacity-10 duration-150;
+}
+
+.error-box {
+    @apply bg-red-500 text-red-800 border-red-500 result-box;
+}
+
+.warn-box {
+    @apply bg-yellow-500 text-yellow-800 border-yellow-500 result-box;
+}
+
+.info-box{
+    @apply bg-cyan-500 text-cyan-800 border-cyan-500 result-box;
+}
+
+.success-box {
+    @apply bg-green-500 text-green-800 border-green-500 result-box;
+}

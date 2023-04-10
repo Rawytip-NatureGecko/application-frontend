@@ -1,0 +1,20 @@
+.lobby-main {
+    @apply min-h-screen bg-gradient-to-t from-stellar-warm to-slate-300 overflow-auto;
+}
+.lobby-block{
+    @apply px-10 flex flex-col
+}
+.lobby-switch-authen{
+    width: 150px;
+    @apply p-5 bg-yellow-200 rounded-t-3xl border-yellow-600 bg-opacity-10 border-t-4 border-l-4 border-r-4  duration-200
+}
+.lobby-switch-authen:hover{
+    @apply bg-opacity-20
+}
+.lobby-form-component-authen{
+    width: 500px;
+}
+
+.main-header {
+    @apply text-stellar-warm text-3xl text-center py-4 bg-black bg-opacity-25 border-b-2 border-cyan-400 border-opacity-60;
+}

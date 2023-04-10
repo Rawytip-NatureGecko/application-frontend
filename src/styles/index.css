@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import url("@/styles/resultbox.css"); 
+@import url("@/styles/LobbyStyle.css"); 
+@import url("@/styles/PrizeTagStyle.css"); 
+@import url("@/styles/GeneralStyle.css"); 
+@import url("@/styles/Authentication.css");
+@import url("@/styles/Navigation.css");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+

@@ -1,0 +1,23 @@
+.navigation-box {
+    @apply bg-opacity-0 text-stellar-blue font-poppins duration-300 flex flex-row align-middle justify-center p-2
+    border-cyan-400 border-b-4 border-opacity-0
+}
+.navigation-box:hover {
+    @apply bg-opacity-25 border-opacity-100
+}
+.navigation-account {
+    width: 180px;
+    @apply navigation-box bg-cyan-200
+}
+.navigation-login {
+    width: 180px;
+    @apply navigation-box bg-cyan-200
+}
+.navigation-logout {
+    width: 180px;
+    @apply navigation-box bg-cyan-300
+}
+.navigation-general {
+    width: 120px;
+    @apply navigation-box bg-white 
+}

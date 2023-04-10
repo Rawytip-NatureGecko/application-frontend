@@ -1,50 +1,98 @@
 <template>
-  <div class="main">
+  <div class="lobby-main">
+    <NavigationBar></NavigationBar>
     <div class="main-header">
-      <p>Welcome to the lobby</p>
+      <p>Rawytip Lounge</p><i class="bi bi-person-circle"></i>
     </div>
-    <!--No membership? Display this-->
-    <div class="">
-      <div class="text-stellar-warm">
-        <p>Hi! It look like you are not logged in!</p>
-        <p>Login to buy a lottery and get rich!</p>
-        <p>(Only in the game. :p )</p>
-        <br />
-        <p>Or create your account! It is free forever.</p>
+    <!--Main COmponents-->
+    <div class="lobby-block items-center flex md:flex-col">
+      <div class="my-3">
+        <button class="lobby-switch-authen" @click="switchAuthenticationMode()">{{
+          page.authenticationMode == 'register' ? $t("Authentication.Login.Title") : $t("Authentication.Register.Title")
+        }}</button>
+        <Register v-show="page.authenticationMode == 'register'" class="lobby-form-component-authen"></Register>
+        <Login v-show="page.authenticationMode == 'login'" class="lobby-form-component-authen"></Login>
+      </div>
+      <div>
+        <PrizeList></PrizeList>
       </div>
     </div>
-    <Login></Login>
-    <TermAndAgreement></TermAndAgreement>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div v-show="false">
+      <!--No membership? Display this-->
+      <div class="flex sm:flex-col md:flex-row justify-center mx-auto">
+
+        <PrizeList class="w-2/3"></PrizeList>
+      </div>
+      <TermAndAgreement></TermAndAgreement>
+
+      <div class="bg-black bg-opacity-20">
+        <input type="text" v-model="message" />
+        <button v-on:click="sendMsg(message)">SEND</button>
+      </div>
+      <div class="h-24 text-black">
+        {{ messages }}
+      </div>
+    </div>
   </div>
 </template>
 
-<style scoped>
-.main {
-  @apply min-h-screen bg-gradient-to-t from-stellar-blue to-stellar-purple
-  px-11;
-}
-.main-header {
-  @apply text-stellar-warm text-3xl text-center 
-    py-4  bg-black bg-opacity-25
-    border-b-2 border-cyan-400 border-opacity-60;
-}
-</style>
-
-<script lang="ts">
+<script lang="js">
 import TermAndAgreement from "../components/general/TermAndAgreement.vue";
 import Login from "../components/authentication/Login.vue";
+import PrizeList from "@/components/userlounge/PrizeList.vue";
+import Register from "@/components/authentication/Register.vue";
+import NavigationBar from "@/components/general/NavigationBar.vue";
+
+import io from "socket.io-client";
+
 export default {
   components: {
     TermAndAgreement,
-    Login
+    Login,
+    Register,
+    PrizeList,
+    NavigationBar
   },
-  setup() {},
+  setup() { },
   data() {
     return {
-      register: {},
-      login: {},
+      socket: {},
+      context: {},
+      message: '',
+      messages: [],
+      page: {
+        authenticationMode: 'login'
+      }
     };
   },
-  methods: {},
+  created() {
+    this.socket = io(process.env.VUE_APP_HOST_BACKEND)
+  },
+  mounted() {
+    this.socket.on("getMSG", data => {
+      this.messages.push(data)
+    })
+  },
+  methods: {
+    sendMsg(message) {
+      this.socket.emit("sendMSG", message);
+      this.message = ''
+    },
+    switchAuthenticationMode() {
+      this.page.authenticationMode = this.page.authenticationMode == 'login' ? 'register' : 'login';
+    }
+  },
 };
 </script>

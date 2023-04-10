@@ -29,7 +29,7 @@ export default {
       this.$i18n.locale = localStorage.getItem("lang").toString();
     },
     getCurrentLang(){
-      this.lang = localStorage.getItem("lang").toString();
+      this.lang = localStorage.getItem("lang")?localStorage.getItem("lang").toString():'en';
     }
   },
   created(){
